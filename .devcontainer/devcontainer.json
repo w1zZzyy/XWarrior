@@ -1,0 +1,36 @@
+{
+    "name": "XWarrior",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "llvm-vs-code-extensions.vscode-clangd",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.makefile-tools",
+                "vadimcn.vscode-lldb",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "cmake.automaticReconfigure": false,
+                "cmake.configureOnEdit":  false,
+                "cmake.configureOnOpen": false,
+                "cmake.copyCompileCommands": "${workspaceFolder}/build-debug/compile_commands.json",
+                "clangd.path": "/usr/bin/clangd",
+                "clangd.arguments": [
+                    "--background-index",
+                    "--compile-commands-dir=build-debug",
+                    "--clang-tidy",
+                    "--completion-style=detailed",
+                    "--header-insertion=never"
+                ]
+            }
+        }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ]
+}
