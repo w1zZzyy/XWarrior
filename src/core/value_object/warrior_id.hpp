@@ -7,8 +7,8 @@
 namespace core {
 namespace value_object {
 
-using level_id = uint8_t;
-using LevelID = ID<level_id>;
+using warrior_id = uint32_t;
+using WarriorID = ID<warrior_id>;
 
 }  // namespace value_object
 }  // namespace core

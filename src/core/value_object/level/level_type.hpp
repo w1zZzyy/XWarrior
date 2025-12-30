@@ -1,14 +1,11 @@
 #pragma once
 
-#include "id.hpp"
-
 #include <cstdint>
 
 namespace core {
 namespace value_object {
 
-using level_id = uint8_t;
-using LevelID = ID<level_id>;
+enum class LevelType : uint8_t { kWarrior, kLimb, kMuscle };
 
 }  // namespace value_object
 }  // namespace core
