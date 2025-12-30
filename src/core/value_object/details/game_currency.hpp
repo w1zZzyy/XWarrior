@@ -1,13 +1,13 @@
 #pragma once
 
-#include <type_traits>
 #include <concepts>
+#include <type_traits>
 
 namespace core {
 namespace value_object {
 namespace details {
 
-template<typename T>
+template <typename T>
 requires std::is_arithmetic_v<T>
 class GameCurrency {
   T val_;
@@ -28,6 +28,6 @@ class GameCurrency {
   }
 };
 
-}
+}  // namespace details
 }  // namespace value_object
 }  // namespace core

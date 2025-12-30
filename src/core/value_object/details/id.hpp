@@ -1,13 +1,13 @@
 #pragma once
 
-#include <type_traits>
 #include <concepts>
+#include <type_traits>
 
 namespace core {
 namespace value_object {
 namespace details {
 
-template<typename T>
+template <typename T>
 requires std::is_arithmetic_v<T>
 class ID {
   T id_;
@@ -18,6 +18,6 @@ class ID {
   constexpr T id() const noexcept { return id_; }
 };
 
-}
+}  // namespace details
 }  // namespace value_object
 }  // namespace core

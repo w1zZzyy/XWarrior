@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../value_object/shared/experience.hpp"
 #include "../value_object/level/level_id.hpp"
 #include "../value_object/level/level_type.hpp"
 #include "../value_object/level/level_value.hpp"
+#include "../value_object/shared/experience.hpp"
 
 #include <optional>
 
