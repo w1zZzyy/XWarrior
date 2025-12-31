@@ -6,17 +6,31 @@ namespace core {
 namespace value_object {
 
 enum class MuscleType : uint8_t {
-  kChest,
-  kBack,
-  kShoulders,
+  // Chest
+  kChestUpper,
+  kChestLower,
+
+  // Back
+  kLatissimus,
+  kTrapezius,
+  kRhomboids,
+  kErectorSpinae,
+
+  // Shoulders
+  kDeltoidFront,
+  kDeltoidSide,
+  kDeltoidRear,
+
+  // Arms
   kBiceps,
   kTriceps,
   kForearms,
 
+  // Core
   kAbs,
   kObliques,
-  kLowerBack,
 
+  // Legs
   kGlutes,
   kQuadriceps,
   kHamstrings,
