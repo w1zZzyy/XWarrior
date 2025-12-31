@@ -1,4 +1,4 @@
-#include "view.hpp"
+#include "muscle_entity.hpp"
 
 namespace core {
 namespace model {
