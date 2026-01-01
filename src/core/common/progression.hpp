@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../value_object/level/level_value.hpp"
+#include "../model/level/level_entity.hpp"
 #include "../value_object/shared/experience.hpp"
 
 #include <memory>
@@ -15,33 +15,37 @@ using derived_ptr = std::shared_ptr<Derived>;
 template <typename Derived, typename EnumType>
 class Progression {
  protected:
+  using Level = model::Level;
+  using Exp = value_object::Experience;
+
   EnumType type_;
-  value_object::LevelValue level_;
-  value_object::Experience exp_;
+  Level level_;
+  Exp exp_;
+
   Progression() = default;
 
  public:
   virtual ~Progression() = default;
 
   constexpr EnumType type() const noexcept { return type_; }
-  constexpr value_object::LevelValue level() const noexcept { return level_; }
-  constexpr value_object::Experience exp() const noexcept { return exp_; }
+  constexpr Level level() const noexcept { return level_; }
+  constexpr Exp exp() const noexcept { return exp_; }
 
   class Build {
     std::optional<EnumType> type_;
-    std::optional<value_object::Experience> exp_;
-    std::optional<value_object::LevelValue> level_;
+    std::optional<Exp> exp_;
+    std::optional<Level> level_;
 
    public:
     constexpr Build& setType(EnumType type) noexcept {
       type_ = type;
       return *this;
     }
-    constexpr Build& setExp(value_object::experience_value exp) noexcept {
+    constexpr Build& setExp(Exp exp) noexcept {
       exp_.emplace(exp);
       return *this;
     }
-    constexpr Build& setLevel(value_object::level_value level) noexcept {
+    constexpr Build& setLevel(Level level) noexcept {
       level_.emplace(level);
       return *this;
     }
