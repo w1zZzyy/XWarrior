@@ -16,19 +16,8 @@ class MuscleGroup final : public MuscleGroupBuild {
   MuscleGroup() : MuscleGroupBuild() {}
 
  public:
-  constexpr MuscleGroup& add(MusclePtr&& muscle) {
-    int index = common::ToIndex(muscle->type());
-    muscles_[index] = (std::move(muscle));
-    return *this;
-  }
-  constexpr MusclePtr& getMuscle(value_object::MuscleType muscle) noexcept {
-    int index = common::ToIndex(muscle);
-    return muscles_[index];
-  }
-  constexpr const MusclePtr& getMuscle(value_object::MuscleType muscle) const noexcept {
-    int index = common::ToIndex(muscle);
-    return muscles_[index];
-  }
+  void addMuscle(MusclePtr&&) noexcept;
+  MusclePtr getMuscle(value_object::MuscleType) const noexcept;
 };
 
 using MuscleGroupPtr = common::derived_ptr<MuscleGroup>;

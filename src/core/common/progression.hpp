@@ -9,8 +9,8 @@
 namespace core {
 namespace common {
 
-template<typename Derived>
-using derived_ptr = std::unique_ptr<Derived>;
+template <typename Derived>
+using derived_ptr = std::shared_ptr<Derived>;
 
 template <typename Derived, typename EnumType>
 class Progression {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../../../../common/progression.hpp"
-#include "../../../../../common/types.hpp"
+#include "../../../../../../common/progression.hpp"
+#include "../../../../../../common/types.hpp"
 
 namespace core {
 namespace model {
