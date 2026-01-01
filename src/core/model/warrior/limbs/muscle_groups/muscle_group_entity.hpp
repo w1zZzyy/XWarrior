@@ -23,7 +23,9 @@ class MuscleGroup final : public MuscleGroupBuild {
     muscles_.emplace_back(std::move(muscle));
     return *this;
   }
-  constexpr std::vector<MusclePtr>& muscles() noexcept { return muscles_; }
+  constexpr const std::vector<MusclePtr>& muscles() const noexcept {
+    return muscles_;
+  }
 };
 
 using MuscleGroupPtr = std::unique_ptr<MuscleGroup>;

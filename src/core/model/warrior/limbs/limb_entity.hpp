@@ -22,7 +22,7 @@ class Limb final : public LimbBuild {
     muscle_groups_.emplace_back(std::move(muscle_group));
     return *this;
   }
-  constexpr std::vector<MuscleGroupPtr>& muscle_groups() noexcept {
+  constexpr const std::vector<MuscleGroupPtr>& muscle_groups() const noexcept {
     return muscle_groups_;
   }
 };
