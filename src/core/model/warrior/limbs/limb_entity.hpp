@@ -27,7 +27,7 @@ class Limb final : public LimbBuild {
   }
 };
 
-using MuscleGroupPtr = std::unique_ptr<MuscleGroup>;
+using LimbPtr = std::unique_ptr<Limb>;
 
 }  // namespace model
 }  // namespace core
