@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../../../../common/progression.hpp"
-#include "../../../../../value_object/muscle/muscle_type.hpp"
+#include "../../../../../common/types.hpp"
 
 namespace core {
 namespace model {
@@ -14,7 +14,7 @@ class Muscle final : public MuscleBuild {
   Muscle() : MuscleBuild() {}
 };
 
-using MusclePtr = std::unique_ptr<Muscle>;
+using MusclePtr = common::derived_ptr<Muscle>;
 
 }  // namespace model
 }  // namespace core

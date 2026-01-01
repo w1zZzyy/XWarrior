@@ -1,9 +1,6 @@
 #pragma once
 
-#include "../../../../value_object/muscle/muscle_group_type.hpp"
 #include "muscles/muscle_entity.hpp"
-
-#include <vector>
 
 namespace core {
 namespace model {
@@ -13,22 +10,28 @@ using MuscleGroupBuild =
     common::Progression<MuscleGroup, value_object::MuscleGroupType>;
 
 class MuscleGroup final : public MuscleGroupBuild {
-  std::vector<MusclePtr> muscles_;
+  MusclePtr muscles_[value_object::kMusclesCnt];
 
   friend MuscleGroupBuild;
   MuscleGroup() : MuscleGroupBuild() {}
 
  public:
   constexpr MuscleGroup& add(MusclePtr&& muscle) {
-    muscles_.emplace_back(std::move(muscle));
+    int index = common::ToIndex(muscle->type());
+    muscles_[index] = (std::move(muscle));
     return *this;
   }
-  constexpr const std::vector<MusclePtr>& muscles() const noexcept {
-    return muscles_;
+  constexpr MusclePtr& getMuscle(value_object::MuscleType muscle) noexcept {
+    int index = common::ToIndex(muscle);
+    return muscles_[index];
+  }
+  constexpr const MusclePtr& getMuscle(value_object::MuscleType muscle) const noexcept {
+    int index = common::ToIndex(muscle);
+    return muscles_[index];
   }
 };
 
-using MuscleGroupPtr = std::unique_ptr<MuscleGroup>;
+using MuscleGroupPtr = common::derived_ptr<MuscleGroup>;
 
 }  // namespace model
 }  // namespace core

@@ -36,6 +36,7 @@ enum class MuscleType : uint8_t {
   kHamstrings,
   kCalves
 };
+constexpr uint8_t kMusclesCnt = 18;
 
 }  // namespace value_object
 }  // namespace core

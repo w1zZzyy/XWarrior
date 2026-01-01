@@ -9,6 +9,9 @@
 namespace core {
 namespace common {
 
+template<typename Derived>
+using derived_ptr = std::unique_ptr<Derived>;
+
 template <typename Derived, typename EnumType>
 class Progression {
  protected:
@@ -42,11 +45,11 @@ class Progression {
       level_.emplace(level);
       return *this;
     }
-    constexpr std::unique_ptr<Derived> build() const noexcept {
+    constexpr derived_ptr<Derived> build() const noexcept {
       if (!type_ || !exp_ || !level_) {
         return nullptr;
       }
-      std::unique_ptr<Derived> d(new Derived());
+      derived_ptr<Derived> d(new Derived());
       d->type_ = type_.value();
       d->exp_ = exp_.value();
       d->level_ = level_.value();

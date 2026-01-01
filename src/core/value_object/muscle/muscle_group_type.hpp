@@ -13,6 +13,7 @@ enum class MuscleGroupType : uint8_t {
   kCore,
   kLegs
 };
+constexpr uint8_t kMuscleGroupsCnt = 6;
 
 }  // namespace value_object
 }  // namespace core
