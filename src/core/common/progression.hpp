@@ -46,7 +46,7 @@ class Progression {
       if (!type_ || !exp_ || !level_) {
         return nullptr;
       }
-      std::unique_ptr<Derived> d = std::make_unique<Derived>();
+      std::unique_ptr<Derived> d(new Derived());
       d->type_ = type_.value();
       d->exp_ = exp_.value();
       d->level_ = level_.value();
