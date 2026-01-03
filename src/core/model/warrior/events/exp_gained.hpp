@@ -12,8 +12,8 @@ class ExpGainedEvent final : public IWarriorEvent {
   value_object::Experience exp_;
 
  public:
-  constexpr explicit ExpGainedEvent(auto id, Entity* entity, auto exp) noexcept
-      : IWarriorEvent(id), entity_(entity), exp_(exp) {}
+  constexpr explicit ExpGainedEvent(Entity* entity, auto exp) noexcept
+      : entity_(entity), exp_(exp) {}
   constexpr auto entity() const noexcept { return entity_; }
   constexpr auto exp() const noexcept { return exp_; }
 };

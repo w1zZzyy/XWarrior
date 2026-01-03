@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../../../../../../common/events/queue.hpp"
 #include "../../../../../../common/progression.hpp"
 #include "../../../../../../common/types.hpp"
 
