@@ -9,17 +9,17 @@ class Limb;
 using LimbBuild = common::Progression<Limb, value_object::LimbType>;
 
 class Limb final : public LimbBuild {
-  MuscleGroupPtr muscle_groups_[value_object::kMuscleGroupsCnt];
+  std::optional<MuscleGroup> muscle_groups_[value_object::kMuscleGroupsCnt];
 
   friend LimbBuild;
   Limb() : LimbBuild() {}
 
  public:
-  void addMuscleGroup(MuscleGroupPtr&&) noexcept;
-  MuscleGroupPtr getMuscleGroup(value_object::MuscleGroupType) const noexcept;
+  void addMuscleGroup(const MuscleGroup&) noexcept;
+  const MuscleGroup* getMuscleGroup(
+      value_object::MuscleGroupType) const noexcept;
+  MuscleGroup* getMuscleGroup(value_object::MuscleGroupType) noexcept;
 };
-
-using LimbPtr = common::derived_ptr<Limb>;
 
 }  // namespace model
 }  // namespace core

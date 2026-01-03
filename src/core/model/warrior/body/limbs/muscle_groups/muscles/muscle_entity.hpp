@@ -12,9 +12,11 @@ using MuscleBuild = common::Progression<Muscle, value_object::MuscleType>;
 class Muscle final : public MuscleBuild {
   friend MuscleBuild;
   Muscle() : MuscleBuild() {}
-};
 
-using MusclePtr = common::derived_ptr<Muscle>;
+ public:
+  Muscle(const Muscle&) = default;
+  Muscle& operator=(const Muscle&) = default;
+};
 
 }  // namespace model
 }  // namespace core

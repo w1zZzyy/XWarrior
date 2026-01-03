@@ -9,9 +9,6 @@
 namespace core {
 namespace common {
 
-template <typename Derived>
-using derived_ptr = std::shared_ptr<Derived>;
-
 template <typename Derived, typename EnumType>
 class Progression {
  protected:
@@ -49,14 +46,14 @@ class Progression {
       level_.emplace(level);
       return *this;
     }
-    constexpr derived_ptr<Derived> build() const noexcept {
+    constexpr std::optional<Derived> build() const noexcept {
       if (!type_ || !exp_ || !level_) {
-        return nullptr;
+        return std::nullopt;
       }
-      derived_ptr<Derived> d(new Derived());
-      d->type_ = type_.value();
-      d->exp_ = exp_.value();
-      d->level_ = level_.value();
+      Derived d;
+      d.type_ = type_.value();
+      d.exp_ = exp_.value();
+      d.level_ = level_.value();
       return d;
     }
   };

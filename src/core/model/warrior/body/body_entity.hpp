@@ -6,19 +6,19 @@ namespace core {
 namespace model {
 
 class Body final {
-  LimbPtr limbs_[value_object::kLimbsCnt];
+  std::optional<Limb> limbs_[value_object::kLimbsCnt];
 
  public:
-  void addLimb(LimbPtr&&) noexcept;
-  void addMuscleGroup(MuscleGroupPtr&&) noexcept;
-  void addMuscle(MusclePtr&&) noexcept;
+  void addLimb(const Limb&) noexcept;
+  void addMuscleGroup(const MuscleGroup&) noexcept;
+  void addMuscle(const Muscle&) noexcept;
 
  private:
-  LimbPtr getLimb(value_object::LimbType) const noexcept;
-  LimbPtr getLimb(value_object::MuscleGroupType) const noexcept;
-  MuscleGroupPtr getMuscleGroup(value_object::MuscleGroupType) const noexcept;
-  MuscleGroupPtr getMuscleGroup(value_object::MuscleType) const noexcept;
-  MusclePtr getMuscle(value_object::MuscleType) const noexcept;
+  Limb* getLimb(value_object::LimbType) noexcept;
+  Limb* getLimb(value_object::MuscleGroupType) noexcept;
+  MuscleGroup* getMuscleGroup(value_object::MuscleGroupType) noexcept;
+  MuscleGroup* getMuscleGroup(value_object::MuscleType) noexcept;
+  Muscle* getMuscle(value_object::MuscleType) noexcept;
 };
 
 }  // namespace model
