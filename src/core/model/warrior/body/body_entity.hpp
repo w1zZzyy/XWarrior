@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../../../common/events/queue.hpp"
+#include "../../exercise/exercise_entity.hpp"
 #include "limbs/limb_entity.hpp"
 
 namespace core {
@@ -12,6 +14,7 @@ class Body final {
   void addLimb(const Limb&) noexcept;
   void addMuscleGroup(const MuscleGroup&) noexcept;
   void addMuscle(const Muscle&) noexcept;
+  void applyExercise(const Exercise&, common::event::Queue&);
 
  private:
   Limb* getLimb(value_object::LimbType) noexcept;

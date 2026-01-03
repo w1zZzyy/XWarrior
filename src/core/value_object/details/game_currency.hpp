@@ -28,6 +28,7 @@ class GameCurrency {
     val_ -= val;
     return *this;
   }
+  constexpr T get() const noexcept { return val_; }
 };
 
 }  // namespace details

@@ -28,6 +28,16 @@ class Progression {
   constexpr Level level() const noexcept { return level_; }
   constexpr Exp exp() const noexcept { return exp_; }
 
+  constexpr void gainExp(auto gain) noexcept { exp_.gain(gain); }
+  constexpr std::optional<Level> upgradeLvl() noexcept {
+    if (level_.canUpgrade(exp_)) {
+      Level old = level_;
+      level_.upgrade();
+      return old;
+    }
+    return std::nullopt;
+  }
+
   class Build {
     std::optional<EnumType> type_;
     std::optional<Exp> exp_;
