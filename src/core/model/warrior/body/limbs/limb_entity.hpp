@@ -15,6 +15,9 @@ class Limb final : public LimbBuild {
   Limb() : LimbBuild() {}
 
  public:
+  Limb(const Limb&) = default;
+  Limb& operator=(const Limb&) = default;
+
   void addMuscleGroup(const MuscleGroup&) noexcept;
   const MuscleGroup* getMuscleGroup(
       value_object::MuscleGroupType) const noexcept;
